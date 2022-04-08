@@ -37,7 +37,7 @@
     "tape": "2.13.x"
   },
   "peerDependencies": {
-    "@kartotherian/mapnik": "~3.7.3"
+    "mapnik": "^4.5.9"
   },
   "scripts": {
     "test": "tape test/*.js",

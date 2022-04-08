@@ -88,7 +88,7 @@ Vector.prototype.close = function(callback) {
 Vector.prototype.update = function(opts, callback) {
     var s = this;
     var map = new mapnik.Map(256,256);
-    map.fromString(opts.xml, {
+    map.fromString(opts.xml.data, {
         strict: module.exports.strict,
         base: this._base + path.sep
     }, function(err) {
@@ -100,7 +100,7 @@ Vector.prototype.update = function(opts, callback) {
         delete s._info;
         s._xml = opts.xml;
         s._map = map;
-        s._md5 = crypto.createHash('md5').update(opts.xml).digest('hex');
+        s._md5 = crypto.createHash('md5').update(opts.xml.data).digest('hex');
         s._format = opts.format || map.parameters.format || s._format || 'png8:m=h';
         s._scale = opts.scale || +map.parameters.scale || s._scale || 1;
 
